@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\wwwroot\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\wwwroot\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,17 +26,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "main.js",
+              "DocumentMoniker": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\wwwroot\\js\\main.js",
+              "RelativeDocumentMoniker": "ThreeDGraphic\\wwwroot\\js\\main.js",
+              "ToolTip": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\wwwroot\\js\\main.js",
+              "RelativeToolTip": "ThreeDGraphic\\wwwroot\\js\\main.js",
+              "ViewState": "AgIAADQAAAAAAAAAAAAgwE4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-14T08:54:26.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ThreeDGraphic\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ThreeDGraphic\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-14T08:38:17.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-14T08:24:24.679Z",
               "EditorCaption": ""
@@ -41,14 +79,10 @@
               "RelativeDocumentMoniker": "ThreeDGraphic\\wwwroot\\js\\site.js",
               "ToolTip": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\wwwroot\\js\\site.js",
               "RelativeToolTip": "ThreeDGraphic\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-01-14T08:24:04.902Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThreeDGraphic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bb1b5b93469737940783849ead1531fac2775d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThreeDGraphic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThreeDGraphic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
