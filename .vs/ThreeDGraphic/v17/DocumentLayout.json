@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|c:\\users\\222909071097-11\\downloads\\threedgraphic\\threedgraphic\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{74906B51-C293-452B-876D-C2BC5B247773}|ThreeDGraphic\\ThreeDGraphic.csproj|solutionrelative:threedgraphic\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ThreeDGraphic\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-14T08:24:24.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "ThreeDGraphic\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\222909071097-11\\Downloads\\ThreeDGraphic\\ThreeDGraphic\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "ThreeDGraphic\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-14T08:24:04.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
