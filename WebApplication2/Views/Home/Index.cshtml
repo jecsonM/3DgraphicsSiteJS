@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Lab D - Three.js + EF Core";
+}
+
+<div class="row g-3">
+    <div class="col-md-8">
+        <div id="WebGL-output" style="width: 700px; height: 500px; border: 2px solid black;"></div>
+        <div class="text-muted mt-2" id="status"></div>
+    </div>
+    <div class="col-md-4">
+        <h4>Добавить фигуру</h4>
+
+        <div class="mb-2">
+            <label class="form-label">Тип</label>
+            <select id="shapeType" class="form-select">
+                <option value="0">Box</option>
+                <option value="1">Sphere</option>
+                <option value="2">Torus</option>
+            </select>
+        </div>
+
+        <div class="mb-2" id="paramsBox">
+            <label class="form-label">Параметры Box</label>
+            <input id="boxW" class="form-control mb-1" type="number" step="0.1" value="4" placeholder="width" />
+            <input id="boxH" class="form-control mb-1" type="number" step="0.1" value="4" placeholder="height" />
+            <input id="boxD" class="form-control mb-1" type="number" step="0.1" value="4" placeholder="depth" />
+        </div>
+
+        <div class="mb-2" id="paramsSphere" style="display:none">
+            <label class="form-label">Параметры Sphere</label>
+            <input id="sphR" class="form-control mb-1" type="number" step="0.1" value="4" placeholder="radius" />
+            <input id="sphWS" class="form-control mb-1" type="number" step="1" value="20" placeholder="widthSegments" />
+            <input id="sphHS" class="form-control mb-1" type="number" step="1" value="20" placeholder="heightSegments" />
+        </div>
+
+        <div class="mb-2" id="paramsTorus" style="display:none">
+            <label class="form-label">Параметры Torus</label>
+            <input id="torusR" class="form-control mb-1" type="number" step="0.1" value="6" placeholder="radius" />
+            <input id="torusTube" class="form-control mb-1" type="number" step="0.1" value="2" placeholder="tube" />
+            <input id="torusRadialSeg" class="form-control mb-1" type="number" step="1" value="16" placeholder="radialSegments" />
+            <input id="torusTubularSeg" class="form-control mb-1" type="number" step="1" value="100" placeholder="tubularSegments" />
+        </div>
+    
+
+        <div class="mb-2">
+            <label class="form-label">Координаты</label>
+            <input id="posX" class="form-control mb-1" type="number" step="0.1" value="0" placeholder="X" />
+            <input id="posY" class="form-control mb-1" type="number" step="0.1" value="3" placeholder="Y" />
+            <input id="posZ" class="form-control mb-1" type="number" step="0.1" value="0" placeholder="Z" />
+        </div>
+
+        <button id="btnAdd" class="btn btn-primary w-100 mb-3">Добавить</button>
+
+        <h4>Фигуры в базе</h4>
+        <div id="shapeList" class="list-group"></div>
+    </div>
+
+    
+</div>
+
+@section Scripts {
+    <script src="~/js/main.js" type="module" asp-append-version="true"></script>
+}
