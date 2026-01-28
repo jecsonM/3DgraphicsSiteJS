@@ -1,6 +1,11 @@
 ﻿import * as THREE from 'three';
+import { GLTFLoader } from 'GLTFLoader';
+import { FBXLoader } from 'FBXLoader';
+
+import { OrbitControls } from 'OrbitControls';
 
 document.addEventListener('DOMContentLoaded', () => {
+
     const status = document.getElementById('status');
     const setStatus = (t) => { if (status) status.textContent = t; };
 
@@ -23,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     root.append(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
 
     scene.add(new THREE.AxesHelper(20));
 
@@ -50,6 +57,28 @@ document.addEventListener('DOMContentLoaded', () => {
     dir.shadow.camera.top = 60;
     dir.shadow.camera.bottom = -60;
     scene.add(dir);
+
+    
+    const GLTFLloader = new GLTFLoader();
+    GLTFLloader.load('/models/porsche959.glb', modelObj => {
+        scene.add(modelObj.scene);
+    },
+        function (error) {
+            console.log('Error: ' + error)
+        })
+
+    const loaderFBX = new FBXLoader();
+    loaderFBX.load('/models/OwlBear.fbx', someModelObj => {
+        
+        
+        someModelObj.scale.set(0.001, 0.001, 0.001);
+        someModelObj.position.set(2, 0, 2);
+        scene.add(someModelObj);
+    },
+        function (error) {
+            console.log('Error: ' + error)
+        })
+
 
     
     const dbMeshes = new Map();
@@ -245,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render loop
     renderer.setAnimationLoop(() => {
+        controls.update();
         renderer.render(scene, camera);
     });
 

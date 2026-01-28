@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\lib\threejs\" />
+    <Folder Include="wwwroot\lib\threejs\jsm\" />
   </ItemGroup>
 
   <ItemGroup>
