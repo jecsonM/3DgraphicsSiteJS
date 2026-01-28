@@ -4,8 +4,16 @@ import { FBXLoader } from 'FBXLoader';
 
 import { OrbitControls } from 'OrbitControls';
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
+
+    let colliders = [];
+    let mainCharacter;
+    let characterSpeed = 5;
+    let characterSize = 2;
+
+    let clock = new THREE.Clock();
     const status = document.getElementById('status');
     const setStatus = (t) => { if (status) status.textContent = t; };
 
@@ -30,38 +38,78 @@ document.addEventListener('DOMContentLoaded', () => {
     root.append(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.mouseButtons = {
+        LEFT: THREE.MOUSE.ROTATE,    // Left button orbits (default)
+        MIDDLE: THREE.MOUSE.DOLLY,   // Middle button zooms (default)
+        RIGHT: null                  // Right button does nothing
+    };
 
     scene.add(new THREE.AxesHelper(20));
 
-    const plane = new THREE.Mesh(
-        new THREE.PlaneGeometry(80, 40),
-        new THREE.MeshStandardMaterial({ color: 0xcccccc })
-    );
-    plane.rotation.x = -Math.PI / 2;
-    plane.receiveShadow = true;
-    scene.add(plane);
+    //const plane = new THREE.Mesh(
+    //    new THREE.PlaneGeometry(80, 40),
+    //    new THREE.MeshStandardMaterial({ color: 0xcccccc })
+    //);
+    //plane.rotation.x = -Math.PI / 2;
+    //plane.receiveShadow = true;
+    //scene.add(plane);
+
+    const grid = new THREE.GridHelper(200, 40, 0x000000, 0x000000);
+    grid.material.opacity = 0.2;
+    grid.material.transparent = true;
+    scene.add(grid);
+
 
     // Lights 
     scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
-    const dir = new THREE.DirectionalLight(0xffffff, 1.0);
-    dir.shadow.bias = -0.0005;
-    dir.shadow.normalBias = 0.005;
-    dir.position.set(-30, 50, -10);
-    dir.castShadow = true;
-    dir.shadow.mapSize.set(2048, 2048);
-    dir.shadow.camera.near = 1;
-    dir.shadow.camera.far = 200;
-    dir.shadow.camera.left = -60;
-    dir.shadow.camera.right = 60;
-    dir.shadow.camera.top = 60;
-    dir.shadow.camera.bottom = -60;
-    scene.add(dir);
 
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 4);
+    hemiLight.position.set(0, 20, 0);
+    scene.add(hemiLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff);
+    dirLight.position.set(0, 20, 10);
+    scene.add(dirLight);
+
+
+
+    //const dir = new THREE.DirectionalLight(0xffffff, 1.0);
+    //dir.shadow.bias = -0.0005;
+    //dir.shadow.normalBias = 0.005;
+    //dir.position.set(-30, 50, -10);
+    //dir.castShadow = true;
+    //dir.shadow.mapSize.set(2048, 2048);
+    //dir.shadow.camera.near = 1;
+    //dir.shadow.camera.far = 200;
+    //dir.shadow.camera.left = -60;
+    //dir.shadow.camera.right = 60;
+    //dir.shadow.camera.top = 60;
+    //dir.shadow.camera.bottom = -60;
+    //scene.add(dir);
+    let mixer;
+    let clips;
     
     const GLTFLloader = new GLTFLoader();
     GLTFLloader.load('/models/porsche959.glb', modelObj => {
+        modelObj.scene.position.set(4, 0, -4);
+        colliders.push({ 
+            coords: modelObj.scene.position,
+            radius: 1.5
+            })
         scene.add(modelObj.scene);
+    },
+        function (error) {
+            console.log('Error: ' + error)
+        })
+
+    GLTFLloader.load('/models/RobotExpressive.glb', modelObj => {
+        mainCharacter = modelObj.scene;
+        scene.add(modelObj.scene);
+        mixer = new THREE.AnimationMixer(modelObj.scene);
+        clips = modelObj.animations;
+        console.log(clips);
+
     },
         function (error) {
             console.log('Error: ' + error)
@@ -72,7 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
         someModelObj.scale.set(0.001, 0.001, 0.001);
-        someModelObj.position.set(2, 0, 2);
+        someModelObj.position.set(4, 0, 4);
+
+        colliders.push({
+            coords: someModelObj.position,
+            radius: 2.5
+        })
+
         scene.add(someModelObj);
     },
         function (error) {
@@ -81,6 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
+
+
+
     const dbMeshes = new Map();
 
     function meshFromEntity(e) {
@@ -262,6 +319,100 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    let isRunning = false, isDancing = false, isDead = false;
+    document.addEventListener('keydown', function (event) {
+        if (isDead)
+        {
+            event.preventDefault();
+            const clip = THREE.AnimationClip.findByName(clips, 'Death');
+            const action = mixer.clipAction(clip);
+            action.stop();
+            isDead = false;
+        }
+        if (event.code == 'KeyD' && !isDancing) {
+            console.log('dancing');
+            isDancing = true;
+            const clip = THREE.AnimationClip.findByName(clips, 'Dance');
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.loop = THREE.LoopRepeat;
+            action.play();
+        }
+        else if (event.code == 'ArrowUp' && !isRunning) {
+            event.preventDefault();
+            console.log('running'); 
+            isRunning = true;
+            const clip = THREE.AnimationClip.findByName(clips, 'Running');
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.loop = THREE.LoopRepeat;
+            action.play();
+
+            
+        }
+        else if (event.code == 'Space') {
+            event.preventDefault();
+            const clip = THREE.AnimationClip.findByName(clips, 'Jump');
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.loop = THREE.LoopOnce;
+            action.play();
+        }
+        else if (event.code == 'KeyA') {
+            event.preventDefault();
+            isDead = true;
+            const clip = THREE.AnimationClip.findByName(clips, 'Death');
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.loop = THREE.LoopOnce;
+            action.clampWhenFinished = true;
+            action.play();
+        }
+        else if (event.code == 'KeyS') {
+            event.preventDefault();
+            const clip = THREE.AnimationClip.findByName(clips, 'Punch');
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.loop = THREE.LoopOnce;
+            action.play();
+        }
+        else if (event.code == 'KeyF') {
+            event.preventDefault();
+            const clip = THREE.AnimationClip.findByName(clips, 'Wave');
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.loop = THREE.LoopOnce;
+            action.play();
+        }
+
+        
+
+        if (event.code == 'ArrowLeft')
+        {
+            mainCharacter.rotation.y += 0.1;
+        }
+        else if (event.code == 'ArrowRight')
+        {
+            mainCharacter.rotation.y -= 0.1;
+        }
+    });
+
+    document.addEventListener('keyup', function (event) {
+        if (event.code == 'ArrowUp' && isRunning) {
+            isRunning = false;
+            const clip = THREE.AnimationClip.findByName(clips, 'Running');
+            const action = mixer.clipAction(clip);
+            action.stop();
+        }
+        else if (event.code == 'KeyD' && isDancing) {
+            isDancing = false;
+            const clip = THREE.AnimationClip.findByName(clips, 'Dance');
+            const action = mixer.clipAction(clip);
+            action.stop();
+        }
+    });
+
     
     window.addEventListener('resize', () => {
         const w = root.clientWidth;
@@ -272,8 +423,45 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.setSize(w, h);
     });
 
+    function checkCollision(x,z)
+    {
+        let nextPos = new THREE.Vector3(x, 0, z);
+        let isCollisions = false;
+        for (let i = 0; i < colliders.length; i++) {
+            if (nextPos.distanceTo(colliders[i].coords) <= (colliders[i].radius+ characterSize))
+            {
+                isCollisions = true;
+                break;
+            }
+        }
+        return isCollisions;
+    }
+
+    function moveMainCharacter(dt)
+    {
+        if (isRunning ) {
+            let angle = mainCharacter.rotation.y;
+            let nextX = mainCharacter.position.x + Math.sin(angle) * characterSpeed * dt;
+            let nextZ = mainCharacter.position.z + Math.cos(angle) * characterSpeed * dt;
+            if (!checkCollision(nextX, nextZ))
+            {
+                mainCharacter.position.x = nextX;
+                mainCharacter.position.z = nextZ;
+                controls.target = mainCharacter.position;
+            }
+        }
+    }
+
+
     // Render loop
     renderer.setAnimationLoop(() => {
+        const dt = clock.getDelta();
+        moveMainCharacter(dt);
+        
+
+        if (mixer)
+            mixer.update(dt);
+
         controls.update();
         renderer.render(scene, camera);
     });
